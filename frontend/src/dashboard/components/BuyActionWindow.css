@@ -1,0 +1,308 @@
+/* ── Container ─────────────────────────────────────── */
+.buy-action-window-container {
+  width: 420px;
+  background: #ffffff;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: default;
+  box-sizing: border-box;
+  z-index: 1000;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  animation: slideUp 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.baw-header {
+  background: linear-gradient(135deg, #3d7ef5 0%, #4184f3 60%, #5b9bf8 100%);
+  padding: 14px 18px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+  user-select: none;
+}
+
+.baw-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.baw-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.baw-header h3 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.baw-header-sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+}
+
+.baw-close-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.baw-close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Order type tabs ────────────────────────────────── */
+.baw-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+}
+
+.baw-tab {
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  letter-spacing: 0.2px;
+}
+
+.baw-tab.active-buy {
+  color: #4184f3;
+  border-bottom-color: #4184f3;
+}
+
+/* ── Product type selector ──────────────────────────── */
+.baw-product-row {
+  display: flex;
+  gap: 8px;
+  padding: 14px 18px 8px;
+  background: #fff;
+}
+
+.baw-product-chip {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #ddd;
+  background: #fff;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.baw-product-chip.selected {
+  border-color: #4184f3;
+  background: #EBF2FF;
+  color: #4184f3;
+}
+
+.baw-product-chip:hover:not(.selected) {
+  border-color: #aaa;
+  color: #333;
+}
+
+/* ── Body / Inputs ──────────────────────────────────── */
+.baw-body {
+  padding: 8px 18px 16px;
+  background: #fff;
+}
+
+.baw-inputs-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.baw-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.baw-field label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.baw-field input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 9px 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+}
+
+.baw-field input:focus {
+  border-color: #4184f3;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(65, 132, 243, 0.12);
+}
+
+/* Disabled (e.g. price field in Market mode) */
+.baw-field input:disabled {
+  background: #f0f0f0;
+  color: #bbb;
+  cursor: not-allowed;
+  border-color: #e8e8e8;
+}
+
+/* ── Margin info ────────────────────────────────────── */
+.baw-margin-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: #f5f8ff;
+  border-radius: 6px;
+  border: 1px solid #dce9ff;
+}
+
+.baw-margin-label {
+  font-size: 12px;
+  color: #666;
+}
+
+.baw-margin-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ── Footer / Buttons ───────────────────────────────── */
+.baw-footer {
+  padding: 12px 18px;
+  background: #f9f9f9;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.baw-btn {
+  padding: 9px 28px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  letter-spacing: 0.3px;
+  transition: all 0.18s;
+}
+
+.baw-btn-buy {
+  background: #4184f3;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(65, 132, 243, 0.35);
+}
+
+.baw-btn-buy:hover {
+  background: #2d6fe0;
+  box-shadow: 0 4px 14px rgba(65, 132, 243, 0.45);
+  transform: translateY(-1px);
+}
+
+.baw-btn-buy:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(65, 132, 243, 0.3);
+}
+
+.baw-btn-cancel {
+  background: #f0f0f0;
+  color: #555;
+}
+
+.baw-btn-cancel:hover {
+  background: #e2e2e2;
+  color: #333;
+}
+
+/* ── Sell mode overrides ────────────────────────────── */
+.buy-action-window-container.sell-mode .baw-header {
+  background: linear-gradient(135deg, #e85340 0%, #f44336 60%, #ef6c5e 100%);
+}
+
+.buy-action-window-container.sell-mode .baw-tab.active-buy {
+  color: #e85340;
+  border-bottom-color: #e85340;
+}
+
+.buy-action-window-container.sell-mode .baw-product-chip.selected {
+  border-color: #e85340;
+  background: #fff5f4;
+  color: #e85340;
+}
+
+.buy-action-window-container.sell-mode .baw-field input:focus {
+  border-color: #e85340;
+  box-shadow: 0 0 0 3px rgba(232, 83, 64, 0.12);
+}
+
+.buy-action-window-container.sell-mode .baw-margin-row {
+  background: #fff5f4;
+  border-color: #ffd5d1;
+}
+
+.buy-action-window-container.sell-mode .baw-btn-buy {
+  background: #e85340;
+  box-shadow: 0 2px 8px rgba(232, 83, 64, 0.35);
+}
+
+.buy-action-window-container.sell-mode .baw-btn-buy:hover {
+  background: #c8392a;
+  box-shadow: 0 4px 14px rgba(232, 83, 64, 0.45);
+}
+
+.buy-action-window-container.sell-mode .baw-badge {
+  background: rgba(255, 255, 255, 0.25);
+}
